@@ -19,3 +19,31 @@
 // {
 //     let result = 50;  // если объявить в блоке кода, то будет видна только в нём
 // }
+
+
+const tvLookQ = +prompt("Сколько фильмов посмотрели?")
+const tvLook = tvLookQ
+
+const filmLastQ = prompt("Последний фильм?");
+const filmLastQReview = +prompt("Оценка фильма?");
+const filmLastQ2 = prompt("Последний фильм?");
+const filmLastQ2Review = +prompt("Оценка фильма?");
+
+
+
+
+
+const personalMovieDB = {
+    count: tvLook,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false
+};
+
+personalMovieDB.movies[filmLastQ] = filmLastQReview;
+personalMovieDB.movies[filmLastQ2] = filmLastQ2Review;
+
+console.log(personalMovieDB)
+
+
