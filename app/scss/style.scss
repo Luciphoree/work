@@ -1,0 +1,14 @@
+@import "global";
+@import "vars";
+@import "fonts";
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.lol{
+    color: yellow;
+}
+@import "media";
