@@ -21,29 +21,78 @@
 // }
 
 
-const tvLookQ = +prompt("Сколько фильмов посмотрели?")
-const tvLook = tvLookQ
-
-const filmLastQ = prompt("Последний фильм?");
-const filmLastQReview = +prompt("Оценка фильма?");
-const filmLastQ2 = prompt("Последний фильм?");
-const filmLastQ2Review = +prompt("Оценка фильма?");
 
 
 
 
 
-const personalMovieDB = {
-    count: tvLook,
+
+
+
+let tvLook;
+let personalMovieDB = {
+    count: {},
     movies: {},
     actors: {},
     genres: [],
-    privat: false
+    privat: false,
 };
 
-personalMovieDB.movies[filmLastQ] = filmLastQReview;
-personalMovieDB.movies[filmLastQ2] = filmLastQ2Review;
+start()
+questions()
+showMyDB(personalMovieDB.privat)
+writeYourGenres()
+function start() {
+    tvLook = +prompt("Сколько фильмов посмотрели?")
+    while (tvLook == "" || tvLook == null || isNaN(tvLook)) {
+        tvLook = prompt("Сколько фильмов посмотрели?")
+    }
+    if (tvLook < 10) {
+        alert('МАло')
+    } else if (tvLook > 10 && tvLook < 30) {
+        alert('средне')
+    } else {
+        alert('много')
 
-console.log(personalMovieDB)
+    }
+}
+function showMyDB(hidden) {
+    if (!hidden) {
+        console.log(personalMovieDB)
+    }
+
+}
+
+function writeYourGenres() {
+    for (i = 1; i <= 3; i++) {
+        personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`);
+    }
+}
+
+
+
+function questions() {
+    for (i = 0; i < 2; i++) {
+        const filmLastQ = prompt("Последний фильм?");
+        const filmLastQReview = +prompt("Оценка фильма?");
+        if (filmLastQ != "" && filmLastQReview != "" && filmLastQ != null && filmLastQReview != null && filmLastQ.length < 10) {
+            personalMovieDB.movies[filmLastQ] = filmLastQReview
+        } else {
+            i--
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
