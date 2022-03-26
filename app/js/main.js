@@ -104,30 +104,60 @@
 
 
 
-const options = {
-    name: 'test',
-    width: 1024,
-    height: 1024,
-    colors: {
-        border: 'black',
-        bg: 'red'
-    }
-}
+// const options = {
+//     name: 'test',
+//     width: 1024,
+//     height: 1024,
+//     colors: {
+//         border: 'black',
+//         bg: 'red'
+//     }
+// }
 
 
 
-let counter = 0;
 
-for (let key in options) {
-    if (typeof (options[key]) === 'object') {
-        for (let keyy in options[key]) {
-            console.log(`Свойства ${keyy} имеет значение ${options[key][keyy]}`)
-            counter++
-        }
-    } else {
-        console.log(`Свойства ${key} имеет значение ${options[key]}`)
-        counter++
-    }
-}
-console.log(options)
-console.log(counter)
+// let counter = 0;
+
+// for (let key in options) {
+//     if (typeof (options[key]) === 'object') {
+//         for (let keyy in options[key]) {
+//             console.log(`Свойства ${keyy} имеет значение ${options[key][keyy]}`)
+//             counter++
+//         }
+//     } else {
+//         console.log(`Свойства ${key} имеет значение ${options[key]}`)
+//         counter++
+//     }
+// }
+// console.log(options)
+// console.log(counter)
+
+
+
+// console.log(Object.keys(options).length) cокрщает код выше
+
+
+// Деструктуризация
+
+// const options = {
+//     name: 'test',
+//     width: 1024,
+//     height: 1024,
+//     colors: {
+//         border: 'black',
+//         bg: 'red'
+//     },
+//     makeTest: function() {
+//         console.log('test')
+//     }
+// }
+
+// options.makeTest();
+
+
+// const {border, bg} = options.colors
+// console.log(border)
+
+
+// Массивы
