@@ -161,3 +161,264 @@
 
 
 // Массивы
+
+// const arr = [15, 2, 5, 22, 35]
+
+// arr.sort(compareNum)
+// console.log(arr)
+
+// function compareNum(a, b) {
+//     return a - b
+// }
+//  (название того чего перебираем, номер элемента, и где) эта коллбэк функция которая выполнится сначала, а уже потом сам каллбек
+// arr.forEach(function (item, i, arr) {
+//     console.log(`${i}: ${item} внутри массива ${arr}`)
+// });
+
+// конец массива удаляет
+// arr.pop();
+
+// конец массива добавляет
+// arr.push();
+
+
+// for (i = 0; i < arr.length; i++) {
+//     console.log(arr[i])
+// }
+
+
+// в этом цикле можно использовать break & continue , а в forEach - нет
+// for (value of arr) {
+//     console.log(value)
+// }
+
+
+// const str = prompt('')
+// const products = str.split(', ')
+// products.sort();
+// console.log(products.join('; '))
+
+
+
+// let a = 5;
+// let b = a;
+// здесь же примитивы и передаётся по значению поэтому оно меняется
+
+// b = b + 5;
+
+// console.log(b);
+// console.log(a);
+
+const obj = {
+    a: 5,
+    b: 1
+}
+
+
+// const copy = obj;  // объекты передаются по ссылке, это ссылка
+
+
+// copy.a = 10
+
+// console.log(copy);
+// console.log(obj);
+
+
+
+
+// копии объектов
+
+// function copy(mainObj) {
+//     let objCopy = {};
+
+//     for (key in mainObj) {
+//         objCopy[key] = mainObj[key]
+//     }
+
+//     return objCopy;
+// }
+
+
+// const numbers = {
+//     a: 2,
+//     b: 5,
+//     c: {
+//         x: 7,
+//         y: 4
+//     }
+// }
+
+// const newNumbers = copy(numbers);
+
+
+// newNumbers.a = 10;
+
+// console.log(newNumbers)
+// console.log(numbers)
+
+
+
+
+
+// const numbers = {
+//     a: 2,
+//     b: 5,
+//     c: {
+//         x: 7,
+//         y: 4
+//     }
+// }
+
+
+// const add = {
+//     d: 17,
+//     e: 20
+// }
+
+
+// console.log(Object.assign(numbers, add)) // объединяет 2 объекта , независимая поверхностая копия 
+
+
+// const clone = Object.assign({}, add) // независимая поверхностая копия 
+
+// clone.d = 20;
+
+
+// console.log(add)
+// console.log(clone)
+
+
+// // создай копию массива
+
+// const oldArray = ['a', 'b', 'c']
+// const newArray = oldArray.slice();
+
+
+// newArray[1] = 'asdsadsa'
+
+// console.log(newArray)
+// console.log(oldArray)
+
+
+// // spead(разворот)
+
+// const video = ['youtube', 'vimeo', 'rutube']
+// const blogs = ['wordpress', 'livejournal', 'blogger']
+// const internet = [...video, ...blogs, 'vk', 'facebook']
+
+
+
+// console.log(internet)
+
+
+// function log(a, b, c) {
+//     console.log(a)
+//     console.log(b)
+//     console.log(c)
+// }
+
+
+// const num = [2, 5, 7];
+
+// log(...num)
+
+
+// const array = ['a', 'b']
+
+// const newArrayy = [...array]
+
+
+// const q = {
+//     one: 1,
+//     two: 2,
+//     three: {
+//         four: 4,
+//         five: 5
+//     }
+// }
+
+// const qq = { ...q }
+// qq.one = 2
+
+// console.log(q)
+// console.log(qq)
+
+
+// let str = 'some';
+// let strObj = new String(str)
+
+// console.log(typeof (str))
+// console.log(typeof (strObj))
+
+
+
+
+let tvLook;
+let personalMovieDB = {
+    start: function () {
+        personalMovieDB.count = +prompt("Сколько фильмов посмотрели?")
+        while (personalMovieDB.count == "" || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
+            tvLook = prompt("Сколько фильмов посмотрели?")
+        }
+        if (personalMovieDB.count < 10) {
+            alert('МАло')
+        } else if (personalMovieDB.count > 10 && personalMovieDB.count < 30) {
+            alert('средне')
+        } else {
+            alert('много')
+
+        }
+    },
+    questions: function () {
+        for (i = 0; i < 2; i++) {
+            const filmLastQ = prompt("Последний фильм?");
+            const filmLastQReview = +prompt("Оценка фильма?");
+            if (filmLastQ != "" && filmLastQReview != "" && filmLastQ != null && filmLastQReview != null && filmLastQ.length < 10) {
+                personalMovieDB.movies[filmLastQ] = filmLastQReview
+            } else {
+                i--
+            }
+        }
+    },
+    count: 0,
+    movies: {},
+    actors: {},
+    writeGenres: function () {
+        for (i = 1; i <= 3; i++) {
+            let genresAnswer = prompt(`Ваш любимый жанр под номером ${i}`);
+            if (genresAnswer == "" || genresAnswer == null) {
+                i--
+            } else {
+                personalMovieDB.genres[i - 1] = genresAnswer;
+            }
+        }
+        personalMovieDB.genres.forEach(function (item, i) {
+            console.log(`Любимый жанр ${i + 1} - это ${item}`)
+        });
+    },
+
+    genres: [],
+    toggleVisibleMyDB: function () {
+        if (personalMovieDB.privat) {
+            personalMovieDB.privat = false
+        } else {
+            personalMovieDB.privat = true
+        }
+    },
+    showMyDB: function (hidden) {
+        if (!hidden) {
+            console.log(personalMovieDB)
+
+        }
+    },
+    privat: false,
+};
+
+// start()
+// questions()
+
+personalMovieDB.start()
+personalMovieDB.questions()
+personalMovieDB.writeGenres()
+personalMovieDB.showMyDB(personalMovieDB.privat)
+personalMovieDB.toggleVisibleMyDB()
