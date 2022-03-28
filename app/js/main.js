@@ -1,5 +1,7 @@
 //  "use strict" // современный режим(стандарт)
 
+// const { type } = require("jquery")
+
 // let number = 15 // присваивание переменной Number числа 15
 // let NUmber = 15 // уже разные переменные ( регистр ), переменная изменяемая
 // const BLUE = "blue" // константа не изменяется
@@ -209,10 +211,10 @@
 // console.log(b);
 // console.log(a);
 
-const obj = {
-    a: 5,
-    b: 1
-}
+// const obj = {
+//     a: 5,
+//     b: 1
+// }
 
 
 // const copy = obj;  // объекты передаются по ссылке, это ссылка
@@ -353,72 +355,133 @@ const obj = {
 
 
 
-let tvLook;
-let personalMovieDB = {
-    start: function () {
-        personalMovieDB.count = +prompt("Сколько фильмов посмотрели?")
-        while (personalMovieDB.count == "" || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
-            tvLook = prompt("Сколько фильмов посмотрели?")
-        }
-        if (personalMovieDB.count < 10) {
-            alert('МАло')
-        } else if (personalMovieDB.count > 10 && personalMovieDB.count < 30) {
-            alert('средне')
-        } else {
-            alert('много')
+// let tvLook;
+// let personalMovieDB = {
+//     start: function () {
+//         personalMovieDB.count = +prompt("Сколько фильмов посмотрели?")
+//         while (personalMovieDB.count == "" || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
+//             tvLook = prompt("Сколько фильмов посмотрели?")
+//         }
+//         if (personalMovieDB.count < 10) {
+//             alert('МАло')
+//         } else if (personalMovieDB.count > 10 && personalMovieDB.count < 30) {
+//             alert('средне')
+//         } else {
+//             alert('много')
 
-        }
-    },
-    questions: function () {
-        for (i = 0; i < 2; i++) {
-            const filmLastQ = prompt("Последний фильм?");
-            const filmLastQReview = +prompt("Оценка фильма?");
-            if (filmLastQ != "" && filmLastQReview != "" && filmLastQ != null && filmLastQReview != null && filmLastQ.length < 10) {
-                personalMovieDB.movies[filmLastQ] = filmLastQReview
-            } else {
-                i--
-            }
-        }
-    },
-    count: 0,
-    movies: {},
-    actors: {},
-    writeGenres: function () {
-        for (i = 1; i <= 3; i++) {
-            let genresAnswer = prompt(`Ваш любимый жанр под номером ${i}`);
-            if (genresAnswer == "" || genresAnswer == null) {
-                i--
-            } else {
-                personalMovieDB.genres[i - 1] = genresAnswer;
-            }
-        }
-        personalMovieDB.genres.forEach(function (item, i) {
-            console.log(`Любимый жанр ${i + 1} - это ${item}`)
-        });
-    },
+//         }
+//     },
+//     questions: function () {
+//         for (i = 0; i < 2; i++) {
+//             const filmLastQ = prompt("Последний фильм?");
+//             const filmLastQReview = +prompt("Оценка фильма?");
+//             if (filmLastQ != "" && filmLastQReview != "" && filmLastQ != null && filmLastQReview != null && filmLastQ.length < 10) {
+//                 personalMovieDB.movies[filmLastQ] = filmLastQReview
+//             } else {
+//                 i--
+//             }
+//         }
+//     },
+//     count: 0,
+//     movies: {},
+//     actors: {},
+//     writeGenres: function () {
+//         for (i = 1; i <= 3; i++) {
+//             let genresAnswer = prompt(`Ваш любимый жанр под номером ${i}`);
+//             if (genresAnswer == "" || genresAnswer == null) {
+//                 i--
+//             } else {
+//                 personalMovieDB.genres[i - 1] = genresAnswer;
+//             }
+//         }
+//         personalMovieDB.genres.forEach(function (item, i) {
+//             console.log(`Любимый жанр ${i + 1} - это ${item}`)
+//         });
+//     },
 
-    genres: [],
-    toggleVisibleMyDB: function () {
-        if (personalMovieDB.privat) {
-            personalMovieDB.privat = false
-        } else {
-            personalMovieDB.privat = true
-        }
-    },
-    showMyDB: function (hidden) {
-        if (!hidden) {
-            console.log(personalMovieDB)
+//     genres: [],
+//     toggleVisibleMyDB: function () {
+//         if (personalMovieDB.privat) {
+//             personalMovieDB.privat = false
+//         } else {
+//             personalMovieDB.privat = true
+//         }
+//     },
+//     showMyDB: function (hidden) {
+//         if (!hidden) {
+//             console.log(personalMovieDB)
 
-        }
-    },
-    privat: false,
-};
+//         }
+//     },
+//     privat: false,
+// };
 
 // start()
 // questions()
 
-personalMovieDB.start()
-personalMovieDB.questions()
-personalMovieDB.writeGenres()
-personalMovieDB.showMyDB(personalMovieDB.privat)
-personalMovieDB.toggleVisibleMyDB()
+// personalMovieDB.start()
+// personalMovieDB.questions()
+// personalMovieDB.writeGenres()
+// personalMovieDB.showMyDB(personalMovieDB.privat)
+// personalMovieDB.toggleVisibleMyDB()
+
+
+// 1) К строке
+
+// console.log(typeof (String(null)));
+// console.log(typeof (String(4)));
+
+// 2) К строке (конкатинация)
+
+// console.log(typeof (5 + ""));
+
+// const num = 5;
+
+// console.log('https://vk.com/catalog/' + num);
+// console.log(`https://vk.com/catalog/${num}`);
+
+
+// const fontSize = 26 + 'px';
+// console.log(fontSize)
+
+// 3) К числу
+
+
+// console.log(typeof (Number('4')));
+
+// 3) К числу через унарный +
+
+// console.log(typeof (+"5"));
+
+
+//3) через метод parseInt
+
+
+// console.log(typeof (parseInt('15px', 10))); // 10-ная система исчисления
+
+// let answ = +prompt('hello', '');
+
+
+
+// к Булиевуму значению
+
+//false = 0, null, "", undefined, NaN
+// всё остальное true
+
+
+// console.log(typeof (Boolean(null)));
+
+// 4)
+
+// console.log(typeof (!!'pes'));
+
+// alert('1'[0])
+
+// console.log(!!(2 && 2))
+// console.log(' \t \n' - 2)
+// console.log(typeof (+'kek'))
+
+
+// DOM
+
+
