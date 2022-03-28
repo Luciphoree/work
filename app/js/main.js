@@ -485,3 +485,99 @@
 // DOM
 
 
+// const box = document.getElementById('box');
+
+
+// console.log(box)
+
+
+// const btns = document.getElementsByTagName('button')
+// получить нужный элемент через индекс [1]
+// const btns = document.getElementsByTagName('button')[1]
+//or
+// console.log(btns[1])
+
+
+//  получаем псевдомассив
+
+// console.log(btns)
+
+
+// const circles = document.getElementsByClassName('cricle')
+
+
+// const hearts = document.querySelectorAll('.heart')
+// поддерживает любые комбинации селекторв такие же как и в CSS
+// исключение из псевдомассив потому что у него есть метод forEach
+// возвращает Node коллекцию ( узлы ) , а не HTML коллекцию
+// hearts.forEach(item => {
+// console.log(item)
+// })
+
+// const oneHeart = document.querySelector('.heart');
+// находит первый элемент или подходящий под выборку
+// console.log(oneHeart)
+
+
+const box = document.getElementById('box')
+const btns = document.getElementsByTagName('button')
+const circles = document.getElementsByClassName('circle')
+const hearts = document.querySelectorAll('.heart')
+const oneHeart = document.querySelector('.heart')
+const wrapper = document.querySelector('.wrapper')
+
+
+// console.dir(box)
+// box.style.backgroundColor = 'blue'
+// box.style.width = '250px';
+
+
+//чтобы записать все свойства как в CSS
+box.style.cssText = 'background-color: red; width: 250px';
+
+
+// для динамического расчёта
+// box.style.cssText = `${num}250px`;
+
+
+btns[2].style.borderRadius = '100%'
+circles[0].style.backgroundColor = 'red'
+
+
+// for (let i = 0; i < hearts.length; ++i) {
+//     hearts[i].style.backgroundColor = 'blue'
+// }
+
+hearts.forEach(item => {
+    item.style.backgroundColor = 'blue'
+})
+
+
+
+const div = document.createElement('div')
+// const text = document.createTextNode('Тут был я');
+
+
+div.classList.add('black')
+
+wrapper.append(div)
+// wrapper.appendChild(div) устарело
+
+// вставить перед
+// hearts[0].before(div)
+// hearts[0].insertBefore(div, hearts[0]) устарело
+
+//вставить после
+// hearts[0].after(div)
+
+// circles[0].remove()
+// wrapper.removeChild(hearts[1]) устарело
+
+
+// hearts[0].replaceWith(circles[0])
+// wrapper.replaceChild(circles[0], hearts[0]) устарело
+
+
+div.innerHTML = '<h1>Hello World</h1>'
+div.textContent = 'hello'
+div.innerText = "hello"
