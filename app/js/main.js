@@ -522,9 +522,11 @@
 const box = document.getElementById('box')
 const btns = document.getElementsByTagName('button')
 const circles = document.getElementsByClassName('circle')
+const wrapper = document.querySelector('.wrapper')
+// const hearts = wrapper.querySelectorAll('.heart') // аналог кода ниже
 const hearts = document.querySelectorAll('.heart')
 const oneHeart = document.querySelector('.heart')
-const wrapper = document.querySelector('.wrapper')
+
 
 
 // console.dir(box)
@@ -574,10 +576,15 @@ wrapper.append(div)
 // wrapper.removeChild(hearts[1]) устарело
 
 
-// hearts[0].replaceWith(circles[0])
+hearts[0].replaceWith(circles[0])
 // wrapper.replaceChild(circles[0], hearts[0]) устарело
 
 
 div.innerHTML = '<h1>Hello World</h1>'
-div.textContent = 'hello'
-div.innerText = "hello"
+// div.textContent = 'hello'
+// div.innerText = "hello"
+
+
+div.insertAdjacentHTML('beforebegin', '<h2>Hello</h2>')
+
+
